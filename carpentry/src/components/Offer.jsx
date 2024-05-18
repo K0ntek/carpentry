@@ -3,6 +3,9 @@ import { MdWork } from "react-icons/md";
 import { RiPaintFill } from "react-icons/ri";
 import { TbBackground } from 'react-icons/tb';
 import { FaArrowRight } from "react-icons/fa6";
+import { VscWorkspaceTrusted } from "react-icons/vsc";
+import { MdOutlineAccessTime } from "react-icons/md";
+import { MdPeopleAlt } from "react-icons/md";
 
 const Offer = () => {
 
@@ -12,58 +15,62 @@ const Offer = () => {
             subtitle: 'painting'
         },
         {
-            icon: <RiPaintFill />,
-            subtitle: 'painting'
+            icon: <VscWorkspaceTrusted />,
+            subtitle: 'high quality materials'
         },
         {
-            icon: <RiPaintFill />,
-            subtitle: 'painting'
+            icon: <MdOutlineAccessTime  />,
+            subtitle: 'execution speed'
         },
         {
-            icon: <RiPaintFill />,
-            subtitle: 'painting'
+            icon: <VscWorkspaceTrusted />,
+            subtitle: 'precision'
         },
         {
-            icon: <RiPaintFill />,
-            subtitle: 'painting'
+            icon: <MdPeopleAlt />,
+            subtitle: 'qualified staff'
         },
     ]
 
     const pricing = [
         {
-            background : '#f0e2db',
+            background : '#171810',
             name: 'OPTION1',
             desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
             price: '500 $',
-            text: '#000'
+            text: '#ddd',
+            BgCircle: '#000'
         },
         {
-            background : '#222',
+            background : 'rgb(9,9,11)',
             name: 'OPTION1',
             desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
             price: '500 $',
-            text: '#ddd'
+            text: '#ddd',
+            BgCircle: '#222'
         },
         {
-            background : '#0c0d07',
+            background : '#111',
             name: 'OPTION1',
             desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
             price: '500 $',
-            text: '#ddd'
+            text: '#ddd',
+            BgCircle: '#000'
         },
         {
-            background : '#efc9b8',
+            background : '#cccccc',
             name: 'OPTION1',
             desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
             price: '500 $',
-            text: '#000'
+            text: '#000',
+            BgCircle: '#ddd'
         },
     ]
 
   return (
-    <div className=' min-h-fit grid lg:grid-cols-2 w-full bg-zinc-950 overflow-hidden'>
+    <div className=' min-h-fit grid lg:grid-cols-2 w-full overflow-hidden'>
 
-        <div className=' space-y-4 py-10'>
+        <div className=' space-y-4 py-10 bg-zinc-950 rounded-3xl m-4 lg:me-1'>
             <div className=' flex ml-10'>
                 <MdWork className='text-5xl mr-2 text-[#cccccc] mt-1'/>
                 <h1 className='text-5xl font-mont font-[200] text-[#cccccc]'> WHAT WE <span className=' font-[600] text-[#3c4123]'>OFFER</span> ?</h1>
@@ -75,7 +82,7 @@ const Offer = () => {
                             <div key={i} className=' w-full aspect-square bg-[#111] rounded-[30px] mx-auto text-[#fff]'>
                                 <div className=' relative top-[50%] translate-y-[-60%]'>
                                     <p className=' text-5xl w-fit mx-auto my-2'>{offerElement.icon}</p>
-                                    <p className=' text-2xl text-center'>{offerElement.subtitle}</p>
+                                    <p className=' text-2xl text-center px-2'>{offerElement.subtitle}</p>
                                 </div>
                             </div>
                         )
@@ -83,14 +90,14 @@ const Offer = () => {
                 </div>
         </div>
 
-        <div className=' grid sm:grid-cols-2 gap-1 bg-white px-1 py-1 lg:py-0'>
+        <div className=' grid sm:grid-cols-2 gap-2 bg-white py-1 lg:py-0 m-4 lg:ms-1'>
             {pricing.map((element, i)=>{
                 return(
-                   <div className='w-full  overflow-hidden aspect-video sm:aspect-auto rounded-2xl group' style={{backgroundColor: element.background, color: element.text}}>
-                        <div className=' space-y-5 hover:scale-110 w-full h-full p-10 transition-all duration-150'>
+                   <div className='w-full py-5 sm:py-0 overflow-hidden aspect-auto rounded-3xl group' style={{backgroundColor: element.background, color: element.text}}>
+                        <div className=' space-y-5 hover:scale-110 w-full h-full p-10 transition-all duration-150 relative'>
                             <h1 className=' text-4xl font-mont font-[600]'>{element.name}</h1>
                             <p className=' font-mont  text-lg font-[400]'>{element.desc}</p>
-                            <p className=' font-mont font-[600] text-3xl'>{element.price}/</p>
+                            {/* <p className=' font-mont font-[600] text-3xl'>{element.price}/</p> */}
                             <div className='w-fit'>
                                 <div className=' flex'><p className=' group-hover:tracking-[2px] transition-all duration-150'>READ MORE</p><FaArrowRight className='mt-1 ml-1 group-hover:ml-3 transition-all duration-150' /></div>
                                 {/* <div className=' h-[1px] w-0  group-hover:w-1/2 mx-auto bg-white transition-all duration-150'></div> */}
