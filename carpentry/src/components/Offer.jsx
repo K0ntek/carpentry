@@ -58,11 +58,11 @@ const Offer = () => {
             BgCircle: '#000'
         },
         {
-            background : '#cccccc',
+            background : '#666',
             name: 'OPTION1',
             desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
             price: '500 $',
-            text: '#000',
+            text: '#ddd',
             BgCircle: '#ddd'
         },
     ]
@@ -72,8 +72,8 @@ const Offer = () => {
 
         <div className=' space-y-4 py-10 bg-zinc-950 rounded-3xl m-4 lg:me-1'>
             <div className=' flex ml-10'>
-                <MdWork className='text-5xl mr-2 text-[#cccccc] mt-1'/>
-                <h1 className='text-5xl font-mont font-[200] text-[#cccccc]'> WHAT WE <span className=' font-[600] text-[#3c4123]'>OFFER</span> ?</h1>
+                <MdWork className='text-4xl sm:text-5xl mr-2 text-[#cccccc] mt-1'/>
+                <h1 className='text-4xl sm:text-5xl font-mont font-[200] text-[#cccccc]'> WHAT WE <span className=' font-[600] text-[#3c4123]'>OFFER</span> ?</h1>
             </div>
                 <p className=' text-white text-xl font-mont w-4/5 mx-auto text-justify'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos quod unde id praesentium quas sed similique, numquam saepe, voluptas quo asperiores fuga facere officia deserunt iure ad et molestias illum.</p>
                 <div className=' mt-5 grid grid-cols-2 sm:grid-cols-3 mx-auto justify-center gap-3 w-4/5'>

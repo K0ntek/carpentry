@@ -14,8 +14,8 @@ const About = () => {
         <div>
           <div className=' space-y-7 w-3/4 mx-auto sticky top-[10%] py-12'>
           <div className=' flex ml-10'>
-                <IoPeopleSharp className='text-5xl mr-2 text-[#292c1c] mt-1'/>
-                <h1 className='text-5xl font-mont font-[200] text-[#292c1c]'> WHO ARE <span className=' font-[600] text-[#292c1c]'>WE</span> ?</h1>
+                <IoPeopleSharp className='text-4xl sm:text-5xl mr-2 text-[#292c1c] mt-1'/>
+                <h1 className='text-4xl sm:text-5xl font-mont font-[200] text-[#292c1c]'> WHO ARE <span className=' font-[600] text-[#292c1c]'>WE</span> ?</h1>
             </div>
                   <p className=' font-inter text-2xl text-justify'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia mollitia atque, quas accusantium excepturi animi et ullam error voluptatibus dolorum. Et facere enim iure possimus? Amet quae, debitis, ea quidem vitae recusandae facilis veniam est pariatur commodi asperiores ad facere?</p>
                   

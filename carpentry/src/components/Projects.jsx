@@ -1,4 +1,5 @@
 import React from 'react'
+import { FaS } from 'react-icons/fa6';
 import { VscWorkspaceTrusted } from "react-icons/vsc";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
@@ -47,17 +48,14 @@ const Projects = () => {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
       items: 3,
-      slidesToSlide: 3 // optional, default to 1.
     },
     tablet: {
       breakpoint: { max: 1024, min: 750 },
       items: 2,
-      slidesToSlide: 2 // optional, default to 1.
     },
     mobile: {
       breakpoint: { max: 750, min: 0 },
       items: 1,
-      slidesToSlide: 1 // optional, default to 1.
     }
   };
 
@@ -65,13 +63,13 @@ const Projects = () => {
     <div className=' py-10 bg-[#eddbf01c]'>
         <div className=' flex ml-10'>
                 <VscWorkspaceTrusted className='text-5xl mr-2 text-[#292c1c] mt-1'/>
-                <h1 className='text-5xl font-mont font-[200] text-[#292c1c]'> OUR LAST <span className=' font-[600] text-[#292c1c]'>REALISATIONS</span>.</h1>
+                <h1 className=' text-4xl sm:text-5xl font-mont font-[200] text-[#292c1c]'> OUR LAST <span className=' font-[600] text-[#292c1c]'>REALISATIONS</span>.</h1>
             </div>
             <div className=' w-5/6 mx-auto'>
                 <Carousel
-                swipeable={false}
-                draggable={false}
-                showDots={true}
+                swipeable={true}
+                draggable={true}
+                showDots={false}
                 responsive={responsive}
                 ssr={true} // means to render carousel on server-side.
                 infinite={true}
@@ -79,13 +77,14 @@ const Projects = () => {
                 keyBoardControl={true}
                 transitionDuration={500}
                 className='pb-3'
+                
               >
                  {realisations.map((realisation, i)=>{
                     return(
-                      <div className=' m-3'>
-                          <img src={realisation.image} alt={realisation.name} className=' rounded-3xl aspect-square w-auto h-auto block object-cover'/>
-                          <h1 className=' text-3xl font-[600] font-mont'>{realisation.name}</h1>
-                          <p className='text-lg text-justify'>{realisation.description}</p>
+                      <div className=' m-3 overflow-hidden rounded-3xl' key={i}>
+                          <img src={realisation.image} alt={realisation.name} className=' rounded-3xl aspect-square md:aspect-[9/12] w-auto h-auto block object-cover hover:scale-125 transition-all duration-150'/>
+                          {/* <h1 className=' text-3xl font-[600] font-mont'>{realisation.name}</h1>
+                          <p className='text-lg text-justify'>{realisation.description}</p> */}
                       </div>
                     )
                   })}

@@ -27,9 +27,9 @@ const Footer = () => {
         <div className='bg-[#050505]'>
                 <div className=' grid lg:grid-cols-3 bg-[#030303] py-2 space-y-10 lg:space-y-0'>
                     <div className=' space-y-5 group hover:bg-[#090909] py-3 transition-all duration-150'>
-                            <div className=' space-y-[-50px]'>
-                                <h1 className=' text-white font-[700] font-megrim text-6xl py-6 ml-[5%]'>Want to be <span className=' text-[#222513]'>up to date</span>?</h1>
-                                <h1 className=' text-white font-[700] font-megrim text-6xl py-6 ml-[10%]'>get in <span className=' text-[#222513]'>touch</span>.</h1>
+                            <div className=''>
+                                <h1 className=' text-white font-[700] font-megrim text-5xl sm:text-6xl sm:ml-[5%]'>Want to be <span className=' text-[#222513]'>up to date</span>?</h1>
+                                <h1 className=' text-white font-[700] font-megrim text-5xl sm:text-6xl  sm:ml-[10%]'>get in <span className=' text-[#222513]'>touch</span>.</h1>
                             </div>
                     </div>
 
@@ -64,7 +64,7 @@ const Footer = () => {
                         <div className=' w-0 group-hover:w-full transition-all duration-150 h-[2px] bg-[#222513]'></div>
                     </div>
 
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7241865.800657484!2d-87.3027427861955!3d27.59144348322279!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c1766591562abf%3A0xf72e13d35bc74ed0!2sFloryda%2C%20Stany%20Zjednoczone!5e0!3m2!1spl!2spl!4v1716065791831!5m2!1spl!2spl" width="450" height="200" style={{border:0, margin:'auto'}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7241865.800657484!2d-87.3027427861955!3d27.59144348322279!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c1766591562abf%3A0xf72e13d35bc74ed0!2sFloryda%2C%20Stany%20Zjednoczone!5e0!3m2!1spl!2spl!4v1716065791831!5m2!1spl!2spl" className=' max-w-[450px]' height="200" style={{border:0, margin:'auto'}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
                     <p className=' text-white font-inter text-center'>images taken from <span className='text-[#222513]'><a href="https://unsplash.com">unsplash</a></span></p>
                     </div>
@@ -78,4 +78,4 @@ const Footer = () => {
   )
 }
 
-export default Footer
+export default Footer 

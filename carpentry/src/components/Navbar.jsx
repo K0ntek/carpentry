@@ -23,12 +23,12 @@ const Navbar = () => {
 
     useEffect(()=>{
         gsap.fromTo('.navbar', {width: 50}, { width: 450, delay:.5})
-        gsap.to('.navbar',{ width: 400, delay:1})
+        gsap.to('.navbar',{ width: 375, delay:1})
         gsap.fromTo('.navElement', {opacity:0}, {opacity:1, delay:1.5})
     },[])
 
   return (
-    <div className='navbar z-[99] fixed top-3 left-[50%] translate-x-[-50%] bg-zinc-950 rounded-full text-white flex space-x-5 h-[64px] min-w-[64px] py-4 px-10'>
+    <div className=' max-w-[375px] navbar z-[99] fixed top-3 sm:left-[50%] sm:translate-x-[-50%] mx-auto bg-zinc-950 rounded-full text-white flex space-x-5 h-[64px] min-w-[64px] py-4 justify-center'>
         <h1 className='navElement text-2xl cursor-pointer'>LOGO</h1>
         <div className=''>
             <ul className=' flex space-x-2'>

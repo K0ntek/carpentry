@@ -3,6 +3,7 @@ import { FaFacebookF, FaTiktok } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa6";
 import gsap from 'gsap/all';
 import { TimelineMax } from "gsap/gsap-core";
+import { FaLinkedinIn } from "react-icons/fa";
 
 const Header = () => {
     const socials =[
@@ -17,6 +18,10 @@ const Header = () => {
         {
             link:'',
             icon:<FaTiktok />
+        },
+        {
+            link:'',
+            icon:<FaLinkedinIn />
         },
     ]
 
@@ -34,9 +39,9 @@ const Header = () => {
   return (
     <>
     <div className=' grid grid-cols-[49.75%_0.5%_49.75%] z-[99] min-h-screen'>
-          <div className='bg w-full h-screen bg-[url("https://images.unsplash.com/photo-1524169741802-fe62fbccd1a4?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")] bg-[0%]'></div>
+    <div className='bg w-full h-screen bg-[url("https://images.unsplash.com/photo-1541194577687-8c63bf9e7ee3?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")] bg-[00%]'></div>
           <div className=' w-full h-full bg-black'></div>
-          <div className='bg w-full h-screen bg-[url("https://images.unsplash.com/photo-1541194577687-8c63bf9e7ee3?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")] bg-[00%]'></div>
+          <div className='bg w-full h-screen bg-[url("https://images.unsplash.com/photo-1524169741802-fe62fbccd1a4?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")] bg-[0%]'></div>
        </div>
             <div className=' absolute top-[100px] lg:top-[15%] space-y-10 z-[98] w-full overflow-x-hidden'>
 
@@ -64,16 +69,16 @@ const Header = () => {
                 </div>
             </div>
 
-        <div className=' absolute bottom-[100px] left-2 space-y-3 text-lg text-[#F0E2DB] z-[98]'>
+        <div className=' absolute bottom-[100px] right-2 space-y-3 text-xl text-[#bebebe] z-[98]'>
         {socials.map((element, i)=>{
             return(
-                <p key={i} className='hover:text-slate-950'>{element.icon}</p>
+                <p key={i} className=' rotate-90 hover:rotate-0 hover:text-[#996955] transition-all duration-150'>{element.icon}</p>
                 )
             })}
         </div>
 
-        <div className='line w-[2px] h-3/4 bg-black absolute bottom-10 left-8 rounded-full'></div>
-        <div className='line w-[2px] h-3/4 bg-black absolute top-10 right-8 rounded-full'></div>
+        <div className='line w-[2px] h-3/4 bg-black absolute top-10 left-8 rounded-full'></div>
+        <div className='line w-[2px] h-3/4 bg-black absolute bottom-10 right-8 rounded-full'></div>
     </>
   )
 }
