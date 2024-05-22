@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { MdWork } from "react-icons/md";
 import { RiPaintFill } from "react-icons/ri";
 import { TbBackground } from 'react-icons/tb';
@@ -6,6 +6,9 @@ import { FaArrowRight } from "react-icons/fa6";
 import { VscWorkspaceTrusted } from "react-icons/vsc";
 import { MdOutlineAccessTime } from "react-icons/md";
 import { MdPeopleAlt } from "react-icons/md";
+import lines from '../assets/lines.png'
+import gsap from 'gsap/all';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 
 const Offer = () => {
 
@@ -58,7 +61,7 @@ const Offer = () => {
             BgCircle: '#000'
         },
         {
-            background : '#666',
+            background : 'rgb(2,2,6)',
             name: 'OPTION1',
             desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
             price: '500 $',
@@ -67,10 +70,18 @@ const Offer = () => {
         },
     ]
 
-  return (
-    <div className=' min-h-fit grid lg:grid-cols-2 w-full overflow-hidden'>
+    useEffect(()=>{
+        gsap.registerPlugin(ScrollTrigger)
 
-        <div className=' space-y-4 py-10 bg-zinc-950 rounded-3xl m-4 lg:me-1'>
+        gsap.fromTo('.offer', { y: 300, opacity:0}, { y: 0, opacity:1, duration:.5, stagger: 0.1, scrollTrigger: {
+            trigger: '.offerWrapper',
+            start: 'top 60%',}});
+    },[])
+
+  return (
+    <div className=' min-h-fit grid lg:grid-cols-2 w-full overflow-hidden offerWrapper'>
+
+        <div className=' offer space-y-4 py-10 bg-zinc-950 rounded-3xl m-4 lg:me-1'>
             <div className=' flex ml-10'>
                 <MdWork className='text-4xl sm:text-5xl mr-2 text-[#cccccc] mt-1'/>
                 <h1 className='text-4xl sm:text-5xl font-mont font-[200] text-[#cccccc]'> WHAT WE <span className=' font-[600] text-[#3c4123]'>OFFER</span> ?</h1>
@@ -93,8 +104,9 @@ const Offer = () => {
         <div className=' grid sm:grid-cols-2 gap-2 bg-white py-1 lg:py-0 m-4 lg:ms-1'>
             {pricing.map((element, i)=>{
                 return(
-                   <div className='w-full py-5 sm:py-0 overflow-hidden aspect-auto rounded-3xl group' style={{backgroundColor: element.background, color: element.text}}>
-                        <div className=' space-y-5 hover:scale-110 w-full h-full p-10 transition-all duration-150 relative'>
+                   <div className=' offer relative w-full py-5 sm:py-0 overflow-hidden aspect-auto rounded-3xl group' style={{background: element.background, color: element.text}}>
+                    <div className=' absolute w-full h-full z-[99] top-0 left-0 group-hover:scale-110 transition-all duration-150' style={{backgroundImage: `url(${lines})`, backgroundSize:'cover', opacity: '30%'}}></div>
+                        <div className=' space-y-5 group-hover:scale-110 w-full h-full p-10 transition-all duration-150 relative'>
                             <h1 className=' text-4xl font-mont font-[600]'>{element.name}</h1>
                             <p className=' font-mont  text-lg font-[400]'>{element.desc}</p>
                             {/* <p className=' font-mont font-[600] text-3xl'>{element.price}/</p> */}

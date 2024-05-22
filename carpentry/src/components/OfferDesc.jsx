@@ -1,5 +1,8 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
+import lines from '../assets/lines.png'
+import gsap from 'gsap/all';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 
 const OfferDesc = () => {
 
@@ -33,7 +36,7 @@ const OfferDesc = () => {
             name: 'OPTION',
             desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam nam iste voluptatibus numquam dolorum ea iusto vel, adipisci veritatis quo corrupti quisquam saepe aperiam maiores, accusantium beatae delectus? Culpa quam sapiente ea excepturi. Dicta aliquam alias qui blanditiis possimus, commodi accusantium laudantium dignissimos, harum dolores quia impedit cum voluptate deserunt!',
             id:4,
-            background: '#666',
+            background: 'rgb(2,2,4)',
             text: '#ddd'
         },
     ]
@@ -49,24 +52,53 @@ const OfferDesc = () => {
         };
     }, []);
 
+    useEffect(()=>{
+        gsap.registerPlugin(ScrollTrigger)
+
+        let images = document.querySelectorAll('.image')
+        images.forEach(image=>{
+            // gsap.set(image, {opacity:0, scrollTrigger:{trigger:image, start:'top 120%', toggleActions:'restart'}})
+            gsap.fromTo(image, { y: 300, opacity: 0 }, { y: 0, opacity: 1, duration:.5, stagger: 0.1, scrollTrigger: {
+                trigger: image,
+                start: 'top 60%',}});
+        })
+
+        let lines = document.querySelectorAll('.lines')
+        lines.forEach(linesElement=>{
+            gsap.fromTo(linesElement, { y: 300, opacity:0}, { y: 0, opacity:.1, duration:.5, stagger: 0.1, scrollTrigger: {
+                trigger: linesElement,
+                start: 'top 60%',}});
+    
+        })
+
+        let content = document.querySelectorAll('.content')
+        content.forEach(contentElement=>{
+            gsap.fromTo(contentElement, { y: -300, opacity: 0 }, { y: 0, opacity: 1, duration:.5, stagger: 0.1, scrollTrigger: {
+                trigger: contentElement,
+                start: 'top 40%',}});
+        })
+    },[])
+
   return (
     <div>
         {description.map((descElement, i)=>{
             return(
                 <div key={i}>
                    {i%2==0&&(
-                        <div className='grid lg:grid-cols-2 gap-2 p-2'  style={{background: descElement.background, color: descElement.text}}>
-                            <div>
+                        <div className=' contentWrapper grid lg:grid-cols-2 gap-2'  style={{background: descElement.background, color: descElement.text}}>
+                            <div className=' m-2 image'>
                                 <img src={descElement.img} alt={descElement.name} className=' aspect-video lg:aspect-square object-cover rounded-3xl'/>
                             </div>
                             
-                            <div className=' text-white rounded-3xl'>
-                               <div className=' relative top-[50%] translate-y-[-50%]'>
-                                <h1 className=' text-7xl sm:text-8xl xl:text-9xl font-mont font-[600] m-6'>{descElement.name}</h1>
-                                    <p className=' text-xl w-4/5 text-justify mx-auto'>{descElement.desc}</p>
+                            <div className=' text-white rounded-3xl relative'>
+                            <div className=' absolute w-full h-full z-[99] top-0 left-0 lines' style={{backgroundImage: `url(${lines})`, backgroundSize:'cover', opacity: '50%'}}></div>
+
+                               <div className=' relative top-[50%] translate-y-[-50%] z-[99]'>
+                                <h1 className=' text-7xl sm:text-8xl xl:text-9xl font-mont font-[600] m-6 content'>{descElement.name}</h1>
+                                    <p className=' text-xl w-4/5 text-justify mx-auto content'>{descElement.desc}</p>
 
                                         <div className='w-fit group mx-auto my-6'>
-                                            <div className=' mx-auto w-1/2 group-hover:w-4/5 h-[2px] transition-all duration-150'></div>
+                                            <div className=' mx-auto w-1/2 group-hover:w-4/5 bg-[silver] h-[2px] transition-all duration-150'></div>
                                                 <button className='bg-black/20 text-white px-5 py-3 text-xl group-hover:tracking-[3px] transition-all duration-150'>COME BACK</button>
                                             <div className=' mx-auto w-1/2 group-hover:w-4/5 h-[2px] bg-[#ffffff] transition-all duration-150'></div>
                                         </div>
@@ -76,40 +108,42 @@ const OfferDesc = () => {
                    )}
 
                     {windowWidth > 1024 && i%2!=0&&(
-                        <div className='grid lg:grid-cols-2 gap-2 p-2'  style={{background: descElement.background, color: descElement.text}}>
-                            <div className=' text-white rounded-3xl'>
-                                    <div className=' relative top-[50%] translate-y-[-50%]'>
-                                        <h1 className=' text-7xl sm:text-8xl xl:text-9xl font-mont font-[600] m-6'>{descElement.name}</h1>
-                                            <p className=' text-xl w-4/5 text-justify mx-auto'>{descElement.desc}</p>
+                        <div className=' contentWrapper grid lg:grid-cols-2 gap-2 '  style={{background: descElement.background, color: descElement.text}}>
+                            <div className=' text-white rounded-3xl relative'>
+                            <div className=' absolute w-full h-full z-[99] top-0 left-0 lines' style={{backgroundImage: `url(${lines})`, backgroundSize:'cover', opacity: '50%'}}></div>
+                                    <div className=' relative top-[50%] translate-y-[-50%] z-[99] '>
+                                        <h1 className=' text-7xl sm:text-8xl xl:text-9xl font-mont font-[600] m-6 content'>{descElement.name}</h1>
+                                            <p className=' text-xl w-4/5 text-justify mx-auto content'>{descElement.desc}</p>
 
                                                 <div className='w-fit group mx-auto my-6'>
-                                                    <div className=' mx-auto w-1/2 group-hover:w-4/5 h-[2px] transition-all duration-150'></div>
+                                                    <div className=' mx-auto w-1/2 group-hover:w-4/5 bg-[silver] h-[2px] transition-all duration-150'></div>
                                                         <button className='bg-black/20 text-white px-5 py-3 text-xl group-hover:tracking-[3px] transition-all duration-150'>COME BACK</button>
                                                     <div className=' mx-auto w-1/2 group-hover:w-4/5 h-[2px] bg-[#ffffff] transition-all duration-150'></div>
                                                 </div>
                                     </div>
                             </div>
 
-                            <div>
+                            <div className=' m-2 image'>
                                 <img src={descElement.img} alt={descElement.name} className=' aspect-video lg:aspect-square object-cover rounded-3xl'/>
                             </div>
                         </div>
                    )}
 
                     {windowWidth < 1024 && i%2!=0&&(
-                        <div className='grid lg:grid-cols-2 gap-2 p-2'  style={{background: descElement.background, color: descElement.text}}>
+                        <div className=' contentWrapper grid lg:grid-cols-2 gap-2'  style={{background: descElement.background, color: descElement.text}}>
 
-                            <div>
+                            <div className=' m-2 image'>
                                 <img src={descElement.img} alt={descElement.name} className=' aspect-video lg:aspect-square object-cover rounded-3xl'/>
                             </div>
 
-                            <div className=' text-white rounded-3xl'>
-                                    <div className=' relative top-[50%] translate-y-[-50%]'>
-                                        <h1 className=' text-7xl sm:text-8xl xl:text-9xl font-mont font-[600] m-6'>{descElement.name}</h1>
-                                            <p className=' text-xl w-4/5 text-justify mx-auto'>{descElement.desc}</p>
+                            <div className=' text-white rounded-3xl relative'>
+                            <div className=' absolute w-full h-full z-[99] top-0 left-0 lines' style={{backgroundImage: `url(${lines})`, backgroundSize:'cover', opacity: '10%'}}></div>
+                                    <div className=' relative top-[50%] translate-y-[-50%] z-[99] '>
+                                        <h1 className=' text-7xl sm:text-8xl xl:text-9xl font-mont font-[600] m-6 content'>{descElement.name}</h1>
+                                            <p className=' text-xl w-4/5 text-justify mx-auto content'>{descElement.desc}</p>
 
                                                 <div className='w-fit group mx-auto my-6'>
-                                                    <div className=' mx-auto w-1/2 group-hover:w-4/5 h-[2px] transition-all duration-150'></div>
+                                                    <div className=' mx-auto w-1/2 group-hover:w-4/5 bg-[silver] h-[2px] transition-all duration-150'></div>
                                                         <button className='bg-black/20 text-white px-5 py-3 text-xl group-hover:tracking-[3px] transition-all duration-150'>COME BACK</button>
                                                     <div className=' mx-auto w-1/2 group-hover:w-4/5 h-[2px] bg-[#ffffff] transition-all duration-150'></div>
                                                 </div>
