@@ -105,7 +105,7 @@ const Offer = () => {
             {pricing.map((element, i)=>{
                 return(
                    <div className=' offer relative w-full py-5 sm:py-0 overflow-hidden aspect-auto rounded-3xl group' style={{background: element.background, color: element.text}}>
-                    <div className=' absolute w-full h-full z-[99] top-0 left-0 group-hover:scale-110 transition-all duration-150' style={{backgroundImage: `url(${lines})`, backgroundSize:'cover', opacity: '30%'}}></div>
+                    <div className=' absolute w-full h-full z-[97] top-0 left-0 group-hover:scale-110 transition-all duration-150' style={{backgroundImage: `url(${lines})`, backgroundSize:'cover', opacity: '30%'}}></div>
                         <div className=' space-y-5 group-hover:scale-110 w-full h-full p-10 transition-all duration-150 relative'>
                             <h1 className=' text-4xl font-mont font-[600]'>{element.name}</h1>
                             <p className=' font-mont  text-lg font-[400]'>{element.desc}</p>
