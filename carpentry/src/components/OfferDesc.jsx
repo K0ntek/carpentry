@@ -91,9 +91,9 @@ const OfferDesc = () => {
                             </div>
                             
                             <div className=' text-white rounded-3xl relative'>
-                            <div className=' absolute w-full h-full z-[99] top-0 left-0 lines' style={{backgroundImage: `url(${lines})`, backgroundSize:'cover', opacity: '50%'}}></div>
+                            <div className=' absolute w-full h-full z-[97] top-0 left-0 lines' style={{backgroundImage: `url(${lines})`, backgroundSize:'cover', opacity: '50%'}}></div>
 
-                               <div className=' relative top-[50%] translate-y-[-50%] z-[99]'>
+                               <div className=' relative top-[50%] translate-y-[-50%] z-[98]'>
                                 <h1 className=' text-7xl sm:text-8xl xl:text-9xl font-mont font-[600] m-6 content'>{descElement.name}</h1>
                                     <p className=' text-xl w-4/5 text-justify mx-auto content'>{descElement.desc}</p>
 
@@ -110,8 +110,8 @@ const OfferDesc = () => {
                     {windowWidth > 1024 && i%2!=0&&(
                         <div className=' contentWrapper grid lg:grid-cols-2 gap-2 '  style={{background: descElement.background, color: descElement.text}}>
                             <div className=' text-white rounded-3xl relative'>
-                            <div className=' absolute w-full h-full z-[99] top-0 left-0 lines' style={{backgroundImage: `url(${lines})`, backgroundSize:'cover', opacity: '50%'}}></div>
-                                    <div className=' relative top-[50%] translate-y-[-50%] z-[99] '>
+                            <div className=' absolute w-full h-full z-[97] top-0 left-0 lines' style={{backgroundImage: `url(${lines})`, backgroundSize:'cover', opacity: '50%'}}></div>
+                                    <div className=' relative top-[50%] translate-y-[-50%] z-[98] '>
                                         <h1 className=' text-7xl sm:text-8xl xl:text-9xl font-mont font-[600] m-6 content'>{descElement.name}</h1>
                                             <p className=' text-xl w-4/5 text-justify mx-auto content'>{descElement.desc}</p>
 
@@ -137,8 +137,8 @@ const OfferDesc = () => {
                             </div>
 
                             <div className=' text-white rounded-3xl relative'>
-                            <div className=' absolute w-full h-full z-[99] top-0 left-0 lines' style={{backgroundImage: `url(${lines})`, backgroundSize:'cover', opacity: '10%'}}></div>
-                                    <div className=' relative top-[50%] translate-y-[-50%] z-[99] '>
+                            <div className=' absolute w-full h-full z-[97] top-0 left-0 lines' style={{backgroundImage: `url(${lines})`, backgroundSize:'cover', opacity: '10%'}}></div>
+                                    <div className=' relative top-[50%] translate-y-[-50%] z-[98] '>
                                         <h1 className=' text-7xl sm:text-8xl xl:text-9xl font-mont font-[600] m-6 content'>{descElement.name}</h1>
                                             <p className=' text-xl w-4/5 text-justify mx-auto content'>{descElement.desc}</p>
 
