@@ -1,10 +1,13 @@
 import React from 'react'
 import Animation from './Animation'
 import { IoPeopleSharp } from "react-icons/io5";
+import Attributes from './Attributes';
+import { Link } from 'react-scroll';
 
 const About = () => {
   return (
-    <div className='w-full mx-auto grid md:grid-cols-2'>
+    <div id='about'>
+      <div className='w-full mx-auto grid md:grid-cols-2'>
         {/* <div className='w-3/4'>
             <img src="https://images.unsplash.com/photo-1560462931-04c235409a53?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="about"  className=' aspect-square rounded-full'/>
         </div> */}
@@ -19,13 +22,17 @@ const About = () => {
             </div>
                   <p className=' font-inter text-2xl text-justify'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia mollitia atque, quas accusantium excepturi animi et ullam error voluptatibus dolorum. Et facere enim iure possimus? Amet quae, debitis, ea quidem vitae recusandae facilis veniam est pariatur commodi asperiores ad facere?</p>
                   
+                  <Link to='offerWrapper' smooth={true}>
                   <div className='w-fit group mx-auto'>
                       <div className=' mx-auto w-1/2 group-hover:w-4/5 h-[2px] bg-[#292c1c] transition-all duration-150'></div>
                           <button className='bg-[#f0e2db6c] text-slate-950 px-5 py-3 text-xl group-hover:tracking-[3px] transition-all duration-150'>OUR OFFER</button>
                       <div className=' mx-auto w-1/2 group-hover:w-4/5 h-[2px] bg-[#1d1d1d] transition-all duration-150'></div>
                   </div>
+                  </Link>
           </div>
         </div>
+    </div>
+    <Attributes/>
     </div>
   )
 }

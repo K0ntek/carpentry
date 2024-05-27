@@ -9,6 +9,8 @@ import { MdPeopleAlt } from "react-icons/md";
 import lines from '../assets/lines.png'
 import gsap from 'gsap/all';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import { Link } from 'react-scroll';
+import OfferDesc from './OfferDesc';
 
 const Offer = () => {
 
@@ -42,31 +44,35 @@ const Offer = () => {
             desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
             price: '500 $',
             text: '#ddd',
-            BgCircle: '#000'
+            BgCircle: '#000',
+            link: 'option1',
         },
         {
             background : 'rgb(9,9,11)',
-            name: 'OPTION1',
+            name: 'OPTION2',
             desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
             price: '500 $',
             text: '#ddd',
-            BgCircle: '#222'
+            BgCircle: '#222',
+            link: 'option2',
         },
         {
             background : '#111',
-            name: 'OPTION1',
+            name: 'OPTION3',
             desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
             price: '500 $',
             text: '#ddd',
-            BgCircle: '#000'
+            BgCircle: '#000',
+            link: 'option3',
         },
         {
             background : 'rgb(2,2,6)',
-            name: 'OPTION1',
+            name: 'OPTION4',
             desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
             price: '500 $',
             text: '#ddd',
-            BgCircle: '#ddd'
+            BgCircle: '#ddd',
+            link: 'option4',
         },
     ]
 
@@ -79,7 +85,8 @@ const Offer = () => {
     },[])
 
   return (
-    <div className=' min-h-fit grid lg:grid-cols-2 w-full overflow-hidden offerWrapper'>
+    <div id='offerWrapper'>
+        <div className=' min-h-fit grid lg:grid-cols-2 w-full overflow-hidden offerWrapper'>
 
         <div className=' offer space-y-4 py-10 bg-zinc-950 rounded-3xl m-4 lg:me-1'>
             <div className=' flex ml-10'>
@@ -104,8 +111,9 @@ const Offer = () => {
         <div className=' grid sm:grid-cols-2 gap-2 bg-white py-1 lg:py-0 m-4 lg:ms-1'>
             {pricing.map((element, i)=>{
                 return(
-                   <div className=' offer relative w-full py-5 sm:py-0 overflow-hidden aspect-auto rounded-3xl group' style={{background: element.background, color: element.text}}>
-                    <div className=' absolute w-full h-full z-[97] top-0 left-0 group-hover:scale-110 transition-all duration-150' style={{backgroundImage: `url(${lines})`, backgroundSize:'cover', opacity: '30%'}}></div>
+                <div className=' offer relative w-full py-5 sm:py-0 overflow-hidden aspect-auto rounded-3xl group' style={{background: element.background, color: element.text}}>
+                <Link to={element.link} smooth={true} spy={true}>
+                <div className=' absolute w-full h-full z-[99] top-0 left-0 group-hover:scale-110 transition-all duration-150' style={{backgroundImage: `url(${lines})`, backgroundSize:'cover', opacity: '30%'}}></div>
                         <div className=' space-y-5 group-hover:scale-110 w-full h-full p-10 transition-all duration-150 relative'>
                             <h1 className=' text-4xl font-mont font-[600]'>{element.name}</h1>
                             <p className=' font-mont  text-lg font-[400]'>{element.desc}</p>
@@ -114,12 +122,13 @@ const Offer = () => {
                                 <div className=' flex'><p className=' group-hover:tracking-[2px] transition-all duration-150'>READ MORE</p><FaArrowRight className='mt-1 ml-1 group-hover:ml-3 transition-all duration-150' /></div>
                                 {/* <div className=' h-[1px] w-0  group-hover:w-1/2 mx-auto bg-white transition-all duration-150'></div> */}
                             </div>
-                        </div>
-                   </div>
+                    </div>
+                    </Link>
+                </div>
                 )
             })}
         </div>
-        
+        </div>
     </div>
   )
 }

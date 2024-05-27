@@ -1,22 +1,23 @@
 import React, { useEffect } from 'react'
 import gsap from 'gsap/all'
+import { Link } from 'react-scroll'
 
 const Navbar = () => {
     const navElements=[
         {
-            link:'',
+            link:'home',
             name:'home'
         },
         {
-            link:'',
+            link:'about',
             name:'about'
         },
         {
-            link:'',
+            link:'offerWrapper',
             name:'offer'
         },
         {
-            link:'',
+            link:'projects',
             name:'projects'
         },
     ]
@@ -40,10 +41,12 @@ const Navbar = () => {
             <ul className=' flex space-x-2'>
                 {navElements.map((navElement, i)=>{
                     return(
+                       <Link to={navElement.link} spy={true} smooth={true}>
                         <div key={i} className='w-fit group'>
                             <li className='navElement cursor-pointer text-[#F0E2DB] px-2 py-1 hover:bg-white/10 rounded-full'>{navElement.name}</li>
                             {/* <div className=' w-0 group-hover:w-1/2 h-[1px] bg-[#F0E2DB] mx-auto transition-all duration-150'></div> */}
                         </div>
+                       </Link>
                     )
                 })}
             </ul>

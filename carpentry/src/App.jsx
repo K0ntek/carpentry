@@ -18,7 +18,6 @@ function App() {
       <Navbar/>
       <Header/>
       <About/>
-      <Attributes/>
       <Offer/>
       <Projects/>
       <OfferDesc/>

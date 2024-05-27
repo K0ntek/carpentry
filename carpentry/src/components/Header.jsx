@@ -4,6 +4,7 @@ import { FaInstagram } from "react-icons/fa6";
 import gsap from 'gsap/all';
 import { TimelineMax } from "gsap/gsap-core";
 import { FaLinkedinIn } from "react-icons/fa";
+import { Link } from 'react-scroll';
 
 const Header = () => {
     const socials =[
@@ -28,8 +29,8 @@ const Header = () => {
     useEffect(()=>{
         const tl = new TimelineMax({repeat: -1});
         tl.from(".bg", {backgroundPositionX: '0%'})
-        .to(".bg", {backgroundPositionX: '100%', duration:30})
-        .to(".bg", {backgroundPositionX:'0%', duration:30})
+        .to(".bg", {backgroundPositionX: '100%', duration:40})
+        .to(".bg", {backgroundPositionX:'0%', duration:40})
 
         gsap.fromTo('.line', {y: '100%'}, {y:0, stagger:1, duration:1})
         gsap.fromTo('.headerWrapper', {x: 400, opacity:0}, {x:0, opacity:1, duration:.5, stagger:.2})
@@ -38,7 +39,7 @@ const Header = () => {
 
   return (
     <>
-    <div className=' grid grid-cols-[49.75%_0.5%_49.75%] z-[99] min-h-screen'>
+    <div className=' grid grid-cols-[49.75%_0.5%_49.75%] z-[99] min-h-screen' id='home'>
     <div className='bg w-full h-screen bg-[url("https://images.unsplash.com/photo-1541194577687-8c63bf9e7ee3?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")] bg-[00%]'></div>
           <div className=' w-full h-full bg-black'></div>
           <div className='bg w-full h-screen bg-[url("https://images.unsplash.com/photo-1524169741802-fe62fbccd1a4?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")] bg-[0%]'></div>
@@ -60,11 +61,13 @@ const Header = () => {
                 <h1 className='headerElement text-center text-5xl font-[200] text-white font-mont'>Our mission, your satisfaction</h1>
                     <p className='headerElement text-[#f1f1f1] text-2xl w-full md:w-4/5 mx-auto text-center'>Enjoy and be happy in your renovated house</p>
                 
-                    <div className='headerElement w-fit group mx-auto'>
-                        <div className=' mx-auto w-1/2 group-hover:w-4/5 h-[2px] bg-[#9b4722] transition-all duration-150'></div>
-                    <button className='bg-black/30 px-5 py-3 text-white text-xl group-hover:tracking-[3px] transition-all duration-150'>CHECK OUT</button>
-                        <div className=' mx-auto w-1/2 group-hover:w-4/5 h-[2px] bg-[#1d1d1d] transition-all duration-150'></div>
-                    </div>
+                    <Link to='offerWrapper' smooth={true}>
+                        <div className='headerElement w-fit group mx-auto'>
+                            <div className=' mx-auto w-1/2 group-hover:w-4/5 h-[2px] bg-[#9b4722] transition-all duration-150'></div>
+                        <button className='bg-black/30 px-5 py-3 text-white text-xl group-hover:tracking-[3px] transition-all duration-150'>CHECK OUT</button>
+                            <div className=' mx-auto w-1/2 group-hover:w-4/5 h-[2px] bg-[#1d1d1d] transition-all duration-150'></div>
+                        </div>
+                    </Link>
 
                 </div>
             </div>
